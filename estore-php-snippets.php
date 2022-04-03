@@ -41,3 +41,15 @@ add_filter('woocommerce_sale_flash', 'change_sale_text_e');
 function change_sale_text_e() {
     return '<span class="onsale">DEAL!</span>';
 }
+
+/** Extra text added under product on archives page */
+add_filter( 'woocommerce_get_price_html', 'estore_product_price_format', 10, 2 );
+
+function estore_product_price_format( $price, $product ) {
+    
+    if ( $product->is_on_sale() ) {
+       $price = sprintf( __( '<div class="was-now-save"><div class="was">WAS %1$s</div><div class="now">%2$s</div><div class="save">SAVE %3$s</div></div>', 'woocommerce' ), wc_price ( $product->get_regular_price() ), wc_price( $product->get_sale_price() ), wc_price( $product->get_regular_price() - $product->get_sale_price() )  );      
+    }
+     
+    return $price;
+ }
