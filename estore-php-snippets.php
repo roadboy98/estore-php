@@ -19,3 +19,11 @@ function estore_add_my_currency_symbol( $currency_symbol, $currency ) {
      }
      return $currency_symbol;
 }
+
+/** Changing 'Add To Cart' button text */
+/** Single product page */
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'estore_add_to_cart_button_text_single');
+
+function estore_add_to_cart_button_text_single () {
+    return __( 'Add To Bag', 'woocommerce' );
+}
