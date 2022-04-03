@@ -27,3 +27,9 @@ add_filter( 'woocommerce_product_single_add_to_cart_text', 'estore_add_to_cart_b
 function estore_add_to_cart_button_text_single () {
     return __( 'Add To Bag', 'woocommerce' );
 }
+
+/** Archive page / Shop page */
+add_filter( 'woocommerce_product_add_to_cart_text', 'estore_add_to_cart_button_text_archives' );  
+
+function estore_add_to_cart_button_text_archives() {
+    return __( 'Add To Bag', 'woocommerce' );
