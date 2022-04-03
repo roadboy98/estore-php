@@ -33,3 +33,11 @@ add_filter( 'woocommerce_product_add_to_cart_text', 'estore_add_to_cart_button_t
 
 function estore_add_to_cart_button_text_archives() {
     return __( 'Add To Bag', 'woocommerce' );
+}
+
+/** Chaning sale / deal flash text */
+add_filter('woocommerce_sale_flash', 'change_sale_text_e');
+
+function change_sale_text_e() {
+    return '<span class="onsale">DEAL!</span>';
+}
